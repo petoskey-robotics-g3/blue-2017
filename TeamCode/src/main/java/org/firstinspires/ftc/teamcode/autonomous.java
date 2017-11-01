@@ -2,46 +2,42 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.usb.RobotArmingStateNotifier;
 
 /**
  * Created by Petoskey Paladins on 10/15/2017.
  */
-@Autonomous ( name = "Autonomous")
+@Autonomous ( name = "AutonomousEncoderPractice")
 
 public class autonomous extends LinearOpMode {
+    @Override
+    public synchronized void waitForStart() {
+        super.waitForStart();
+    }
+
     public DcMotor right;
     public DcMotor left;
 
-    public autonomous(){
-
-    }
 
     @Override
     public void runOpMode() throws InterruptedException {
         right = hardwareMap.dcMotor.get("rightMotor");
         left = hardwareMap.dcMotor.get("leftMotor");
+        left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        right.setPower(.5);
-        left.setPower(-.5);
+        right.setTargetPosition(4320);
+        left.setTargetPosition(-4320);
+        right.setPower(0.7);
+        left.setPower(-0.7);
+        right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        double Robert = 24.5;
 
-        sleep(3000);
 
-        right.setPower(-.8);
-        left.setPower(.8);
-
-        sleep(3000);
-
-        right.setPower(.5);
-        left.setPower(.5);
-
-        sleep(2000);
-
-        right.setPower(.2);
-        left.setPower(-.2);
-
-        sleep(3000);
-
-        right.setPower(0);
-        left.setPower(0);
+        telemetry.addData("left motor value", Robert  );
+        telemetry.addData("right motor value" , Robert);
     }
 }
