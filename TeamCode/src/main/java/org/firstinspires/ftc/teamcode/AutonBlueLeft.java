@@ -91,16 +91,11 @@ public class AutonBlueLeft extends LinearOpMode {
 
     public void runOpMode() throws InterruptedException {
 
-        right = hardwareMap.dcMotor.get("rightDrive");
-        left = hardwareMap.dcMotor.get("leftDrive");
-        leftEscalator = hardwareMap.dcMotor.get("leftEscalator");
-        rightEscalator = hardwareMap.dcMotor.get("rightEscalator");
-
-        DriveForward(0.5f, 1550);
-        Turn(-0.5f, 650);
-        DriveBackwards(0.5f, 520);
-        Turn(0.5f, 650);
-        DriveForward(0.5f, 400);
+        right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Turn(0.5f, 555);
+        DriveForward(0.5f, 300);
         DropGlyph();
+        DriveBackwards(0.5f, 75);
     }
 }

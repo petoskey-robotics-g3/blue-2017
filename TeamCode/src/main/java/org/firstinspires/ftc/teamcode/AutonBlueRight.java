@@ -76,9 +76,10 @@ public class AutonBlueRight extends LinearOpMode {
         leftEscalator = hardwareMap.dcMotor.get("leftEscalator");
         rightEscalator = hardwareMap.dcMotor.get("rightEscalator");
 
-        DriveForward(0.5f, 1550);
-        Turn(-0.5f, 650);
-        DriveForward(0.5f, 600);
+        DriveForward(0.5f, 1140);
+        Turn(-0.5f, 585);
+        DriveForward(0.5f, 400);
         DropGlyph();
+        DriveBackwards(0.5f, 150);
     }
 }

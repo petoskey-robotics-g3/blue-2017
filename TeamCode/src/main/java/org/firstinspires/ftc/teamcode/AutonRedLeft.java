@@ -76,9 +76,9 @@ public class AutonRedLeft extends LinearOpMode {
         leftEscalator = hardwareMap.dcMotor.get("leftEscalator");
         rightEscalator = hardwareMap.dcMotor.get("rightEscalator");
 
-        DriveForward(0.5f, 1150);
-        Turn(0.5f, 620);
-        DriveForward(0.5f, 400);
+        DriveForward(0.5f, 1140);
+        Turn(0.5f, 650);
+        DriveForward(0.5f, 450);
         DropGlyph();
         DriveBackwards(0.5f, 150);
     }
