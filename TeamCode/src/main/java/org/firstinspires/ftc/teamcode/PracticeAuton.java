@@ -42,7 +42,7 @@ public class PracticeAuton extends LinearOpMode{
         telemetry.addData("Path0",  "Starting at %7d :%7d",
                 left.getCurrentPosition(),
                 right.getCurrentPosition());
-        telemetry.update();
+        telemetry.update();}
 
         public void DropGlyph() {
 
@@ -55,4 +55,4 @@ public class PracticeAuton extends LinearOpMode{
 
 
     }
-}
+
