@@ -11,11 +11,11 @@ import com.qualcomm.robotcore.hardware.usb.RobotArmingStateNotifier;
  * Developed in Android Studio using the FTC SDK on GitHub.
  */
 
-@Autonomous ( name = "AutonPractice")
+@Autonomous ( name = "AutonPracticeInversed")
 
 //Right motor is reversed, negative direction goes left and positive goes right
 
-public class AutonPractice extends LinearOpMode {
+public class AutonPracticeInversed extends LinearOpMode {
     @Override
 
     public synchronized void waitForStart() {
@@ -40,8 +40,8 @@ public class AutonPractice extends LinearOpMode {
         left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        right.setTargetPosition(-rotations*900);
-        left.setTargetPosition(rotations*900);
+        right.setTargetPosition(-rotations*800);
+        left.setTargetPosition(rotations*800);
 
         right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -109,7 +109,7 @@ public class AutonPractice extends LinearOpMode {
         rightEscalator = hardwareMap.dcMotor.get("rightEscalator");
 
         DriveForward(0.5f, 4);
-        Turn(0.5f, 1);
+        Turn(0.5f, -1);
         DriveForward(0.5f, 1);
         DropGlyph();
         DropGlyph();

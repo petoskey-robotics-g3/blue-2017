@@ -1,8 +1,9 @@
 package org.firstinspires.ftc.teamcode;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.usb.RobotArmingStateNotifier;
+        import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+        import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+        import com.qualcomm.robotcore.hardware.ColorSensor;
+        import com.qualcomm.robotcore.hardware.DcMotor;
+        import com.qualcomm.robotcore.hardware.usb.RobotArmingStateNotifier;
 
 /**
  * Created by Bridger for G3 Robotics (Blue).
@@ -11,11 +12,11 @@ import com.qualcomm.robotcore.hardware.usb.RobotArmingStateNotifier;
  * Developed in Android Studio using the FTC SDK on GitHub.
  */
 
-@Autonomous ( name = "AutonPractice")
+@Autonomous ( name = "ColorSensorPractice")
 
 //Right motor is reversed, negative direction goes left and positive goes right
 
-public class AutonPractice extends LinearOpMode {
+public class ColorSensorPractice extends LinearOpMode {
     @Override
 
     public synchronized void waitForStart() {
@@ -26,6 +27,7 @@ public class AutonPractice extends LinearOpMode {
     public DcMotor left;
     public DcMotor rightEscalator;
     public DcMotor leftEscalator;
+    ColorSensor colorSensor;
 
     public void DropGlyph() {
 
@@ -107,6 +109,15 @@ public class AutonPractice extends LinearOpMode {
         left = hardwareMap.dcMotor.get("leftDrive");
         leftEscalator = hardwareMap.dcMotor.get("leftEscalator");
         rightEscalator = hardwareMap.dcMotor.get("rightEscalator");
+        colorSensor = hardwareMap.colorSensor.get("colorSensor");
+        colorSensor.enableLed(true);
+
+        // send the info back to driver station using telemetry function.
+        telemetry.addData("LED", true ? "On" : "Off");
+
+        telemetry.addData("Red  ", colorSensor.red());
+
+        telemetry.addData("Blue ", colorSensor.blue());
 
         DriveForward(0.5f, 4);
         Turn(0.5f, 1);
