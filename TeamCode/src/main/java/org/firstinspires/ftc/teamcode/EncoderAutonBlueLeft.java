@@ -1,21 +1,23 @@
 package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.usb.RobotArmingStateNotifier;
 
 /**
- * Created by Bridger for G3 Robotics (Blue).
- * Written over the course of September, October, and November of 2017
+ * Created by William Goelz and Bridger Mattson for G3 Robotics (Blue).
+ * Written over the course of November and December of 2017
  * Used in the Houghton FTC Qualifying round.
  * Developed in Android Studio using the FTC SDK on GitHub.
  */
 
-@Autonomous ( name = "AutonPracticeInversed")
+@Autonomous ( name = "EncoderAutonBlueRight")
 
 //Right motor is reversed, negative direction goes left and positive goes right
 
-public class AutonPracticeInversed extends LinearOpMode {
+public class EncoderAutonBlueLeft extends LinearOpMode {
     @Override
 
     public synchronized void waitForStart() {
@@ -26,6 +28,8 @@ public class AutonPracticeInversed extends LinearOpMode {
     public DcMotor left;
     public DcMotor rightEscalator;
     public DcMotor leftEscalator;
+    ColorSensor colorSensor;
+ 
 
     public void DropGlyph() {
 
@@ -102,11 +106,12 @@ public class AutonPracticeInversed extends LinearOpMode {
     @Override
 
     public void runOpMode() throws InterruptedException {
-
+        waitForStart();
         right = hardwareMap.dcMotor.get("rightDrive");
         left = hardwareMap.dcMotor.get("leftDrive");
         leftEscalator = hardwareMap.dcMotor.get("leftEscalator");
         rightEscalator = hardwareMap.dcMotor.get("rightEscalator");
+
 
         DriveForward(0.5f, 4);
         Turn(0.5f, -1);

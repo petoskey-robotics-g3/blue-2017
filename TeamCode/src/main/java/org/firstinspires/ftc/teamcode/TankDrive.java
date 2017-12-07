@@ -4,9 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 /**
- * Created by Bridger Mattson and Will Goelz for G3 Robotics (Blue).
+ * Created by William Goelz and Bridger Mattson for G3 Robotics (Blue).
  * Written over the course of September, October, and November of 2017
  * Used in the Petoskey and Houghton FTC Qualifying rounds.
  * Developed in Android Studio using the FTC SDK on GitHub.
@@ -33,6 +34,8 @@ public class TankDrive extends OpMode {
 
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
         rightEscalator.setDirection(DcMotor.Direction.REVERSE);
+
+
     }
 
     @Override
@@ -57,8 +60,8 @@ public class TankDrive extends OpMode {
         leftY = (leftY == 0) ? -gamepad1.left_stick_y : leftY;
         rightY = (rightY == 0) ? -gamepad1.right_stick_y : rightY;
 
-        leftDrive.setPower(leftY/1.3);
-        rightDrive.setPower(rightY/1.3);
+        leftDrive.setPower(leftY);
+        rightDrive.setPower(rightY);
 
         if (EscalatorIn > 0.0) {
             leftEscalator.setPower(EscalatorIn);
@@ -81,6 +84,9 @@ public class TankDrive extends OpMode {
             telemetry.addData("Escalator Up", "false");
             telemetry.addData("Escalator Down", "false");
         }
+
+
+
     }
 
 }

@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.usb.RobotArmingStateNotifier;
 
 /**
- * Created by  Bridger Mattson and William Goelz for G3 Robotics (Blue).
+ * Created by William Goelz and Bridger Mattson for G3 Robotics (Blue).
  * Written over the course of September, October, and November of 2017
  * Used in the Petoskey and Houghton FTC Qualifying rounds.
  * Developed in Android Studio using the FTC SDK on GitHub.
